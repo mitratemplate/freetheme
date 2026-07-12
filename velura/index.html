@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ولورا - فروشگاه پوشاک زنانه</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .bg-primary {
+            background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%);
+        }
+        
+        .text-primary {
+            color: #d946ef;
+        }
+        
+        .border-primary {
+            border-color: #d946ef;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(217, 70, 239, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50" dir="rtl">
+    <!-- Header/Navbar -->
+    <header class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shopping-bag text-3xl text-primary"></i>
+                    <span class="text-2xl font-bold text-gray-800">ولورا</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex gap-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition">خانه</a>
+                    <a href="#products" class="text-gray-700 hover:text-primary transition">محصولات</a>
+                    <a href="#categories" class="text-gray-700 hover:text-primary transition">دسته‌بندی</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition">درباره ما</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition">تماس</a>
+                </nav>
+                
+                <!-- Desktop Icons -->
+                <div class="hidden md:flex items-center gap-6">
+                    <button onclick="openModal('searchModal')" class="text-gray-700 hover:text-primary text-xl transition">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button onclick="openModal('favoritesModal')" class="text-gray-700 hover:text-primary text-xl transition relative">
+                        <i class="fas fa-heart"></i>
+                        <span class="absolute -top-2 -left-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button onclick="openModal('compareModal')" class="text-gray-700 hover:text-primary text-xl transition">
+                        <i class="fas fa-code-branch"></i>
+                    </button>
+                    <button onclick="openModal('cartModal')" class="relative">
+                        <i class="fas fa-shopping-cart text-gray-700 hover:text-primary text-xl transition"></i>
+                        <span class="absolute -top-2 -left-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button onclick="openModal('loginModal')" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition">
+                        ورود
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button id="mobileMenuToggle" class="md:hidden text-2xl text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <nav id="mobileMenu" class="hidden md:hidden pb-4 border-t pt-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-primary">خانه</a>
+                <a href="#products" class="block py-2 text-gray-700 hover:text-primary">محصولات</a>
+                <a href="#categories" class="block py-2 text-gray-700 hover:text-primary">دسته‌بندی</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">درباره ما</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">تماس</a>
+                <div class="flex gap-3 mt-4 pt-4 border-t">
+                    <button onclick="openModal('cartModal')" class="flex-1 bg-primary text-white py-2 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> سبد خرید
+                    </button>
+                    <button onclick="openModal('loginModal')" class="flex-1 bg-gray-200 text-gray-700 py-2 rounded flex items-center justify-center gap-2">
+                        <i class="fas fa-user"></i> ورود
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section id="home" class="bg-gradient-to-b from-pink-50 to-white py-8 md:py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="owl-carousel hero-carousel">
+                <!-- Slide 1 -->
+                <div class="item">
+                    <div class="bg-gradient-to-r from-pink-500 to-purple-600 rounded-2xl overflow-hidden">
+                        <div class="grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+                            <div class="text-white order-2 md:order-1">
+                                <h1 class="text-4xl md:text-5xl font-bold mb-4">مجموعه بهاری ۱۴۰۲</h1>
+                                <p class="text-lg mb-6 opacity-90">جدیدترین و زیباترین مدل‌های فصل بهار اکنون در دسترس است</p>
+                                <button class="bg-white text-purple-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                                    مشاهده محصولات
+                                </button>
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <img src="https://images.unsplash.com/photo-1595777712802-3d1d6dc0ffcb?w=500" alt="Spring Collection" class="rounded-lg w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="item">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl overflow-hidden">
+                        <div class="grid md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
+                            <div class="text-white order-2 md:order-1">
+                                <h1 class="text-4xl md:text-5xl font-bold mb-4">تخفیف تا ۷۰ درصد</h1>
+                                <p class="text-lg mb-6 opacity-90">محصولات منتخب با بهترین قیمت‌ها</p>
+                                <button class="bg-white text-pink-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                                    خریداری کنید
+                                </button>
+                            </div>
+                            <div class="order-1 md:order-2">
+                                <img src="https://images.unsplash.com/photo-1595421868261-17bd75e94e5c?w=500" alt="Sale" class="rounded-lg w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">دسته‌بندی محصولات</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Category Card 1 -->
+                <div class="hover-lift group cursor-pointer">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden bg-gray-200 h-40 md:h-48">
+                            <img src="https://images.unsplash.com/photo-1556688576-b4079c44dd1f?w=300" alt="Dresses" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition">مشاهده</span>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-bold text-gray-800">لباس‌های مجلسی</h3>
+                            <p class="text-sm text-gray-500">۱۲۳ محصول</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 2 -->
+                <div class="hover-lift group cursor-pointer">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden bg-gray-200 h-40 md:h-48">
+                            <img src="https://images.unsplash.com/photo-1591087570119-e4277eff4c55?w=300" alt="Casual" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition">مشاهده</span>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-bold text-gray-800">لباس‌های روزمره</h3>
+                            <p class="text-sm text-gray-500">۲۴۵ محصول</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 3 -->
+                <div class="hover-lift group cursor-pointer">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden bg-gray-200 h-40 md:h-48">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300" alt="Sportswear" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition">مشاهده</span>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-bold text-gray-800">لباس‌های ورزشی</h3>
+                            <p class="text-sm text-gray-500">۸۹ محصول</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category Card 4 -->
+                <div class="hover-lift group cursor-pointer">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+                        <div class="relative overflow-hidden bg-gray-200 h-40 md:h-48">
+                            <img src="https://images.unsplash.com/photo-1594934359602-b9f6e3f0e999?w=300" alt="Accessories" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                                <span class="text-white text-lg font-bold opacity-0 group-hover:opacity-100 transition">مشاهده</span>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            <h3 class="text-lg font-bold text-gray-800">اکسسوری</h3>
+                            <p class="text-sm text-gray-500">۱۵۶ محصول</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-12 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">محصولات برتر</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1596777684687-81d440dc47d3?w=300" alt="Product 1" class="w-full h-64 object-cover">
+                        <span class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-۳۰%</span>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition flex items-end justify-center pb-4">
+                            <div class="opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0 flex gap-2">
+                                <button onclick="toggleFavorite(this)" class="bg-white text-red-500 p-3 rounded-full hover:bg-red-500 hover:text-white transition">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button onclick="openModal('cartModal')" class="bg-primary text-white p-3 rounded-full hover:bg-pink-600 transition">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button onclick="openModal('compareModal')" class="bg-white text-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                    <i class="fas fa-code-branch"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">پیراهن مجلسی</h3>
+                        <p class="text-sm text-gray-500 mb-3">پنبه خالص با کیفیت عالی</p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-gray-300"><i class="fas fa-star"></i></span>
+                            <span class="text-sm text-gray-500">(۲۴)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">۲۸۹,۰۰۰</span>
+                                <span class="text-sm text-gray-400 line-through mr-2">۴۱۲,۰۰۰</span>
+                            </div>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">موجود</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977479ee6?w=300" alt="Product 2" class="w-full h-64 object-cover">
+                        <span class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-۲۵%</span>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition flex items-end justify-center pb-4">
+                            <div class="opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0 flex gap-2">
+                                <button onclick="toggleFavorite(this)" class="bg-white text-red-500 p-3 rounded-full hover:bg-red-500 hover:text-white transition">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button onclick="openModal('cartModal')" class="bg-primary text-white p-3 rounded-full hover:bg-pink-600 transition">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button onclick="openModal('compareModal')" class="bg-white text-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                    <i class="fas fa-code-branch"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">بلوز کاژوال</h3>
+                        <p class="text-sm text-gray-500 mb-3">طرح‌های جدید و شیک</p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-sm text-gray-500">(۴۵)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">۱۸۹,۰۰۰</span>
+                                <span class="text-sm text-gray-400 line-through mr-2">۲۵۲,۰۰۰</span>
+                            </div>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">موجود</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1551163943-3f2da33eb896?w=300" alt="Product 3" class="w-full h-64 object-cover">
+                        <span class="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">-۲۰%</span>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition flex items-end justify-center pb-4">
+                            <div class="opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0 flex gap-2">
+                                <button onclick="toggleFavorite(this)" class="bg-white text-red-500 p-3 rounded-full hover:bg-red-500 hover:text-white transition">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button onclick="openModal('cartModal')" class="bg-primary text-white p-3 rounded-full hover:bg-pink-600 transition">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button onclick="openModal('compareModal')" class="bg-white text-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                    <i class="fas fa-code-branch"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">دامن طرح‌دار</h3>
+                        <p class="text-sm text-gray-500 mb-3">الگوهای متنوع و جذاب</p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-gray-300"><i class="fas fa-star"></i></span>
+                            <span class="text-sm text-gray-500">(۳۲)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">۳۴۹,۰۰۰</span>
+                                <span class="text-sm text-gray-400 line-through mr-2">۴۳۷,۵۰۰</span>
+                            </div>
+                            <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">۳ عدد باقی</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift group">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1506629082632-33565a649d09?w=300" alt="Product 4" class="w-full h-64 object-cover">
+                        <span class="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">جدید</span>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition flex items-end justify-center pb-4">
+                            <div class="opacity-0 group-hover:opacity-100 transition transform translate-y-4 group-hover:translate-y-0 flex gap-2">
+                                <button onclick="toggleFavorite(this)" class="bg-white text-red-500 p-3 rounded-full hover:bg-red-500 hover:text-white transition">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button onclick="openModal('cartModal')" class="bg-primary text-white p-3 rounded-full hover:bg-pink-600 transition">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <button onclick="openModal('compareModal')" class="bg-white text-gray-700 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                    <i class="fas fa-code-branch"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">شلوار جین</h3>
+                        <p class="text-sm text-gray-500 mb-3">مدل‌های اروپایی و شیک</p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-yellow-400"><i class="fas fa-star"></i></span>
+                            <span class="text-sm text-gray-500">(۶۸)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-2xl font-bold text-primary">۴۲۹,۰۰۰</span>
+                                <span class="text-sm text-gray-400 line-through mr-2">۴۲۹,۰۰۰</span>
+                            </div>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">موجود</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Carousel -->
+    <section class="py-12 md:py-20 bg-gradient-to-r from-pink-100 to-purple-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">پیشنهادات ویژه</h2>
+            
+            <div class="owl-carousel special-carousel">
+                <!-- Special Offer 1 -->
+                <div class="item">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg p-6 md:p-8">
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1505252585461-04db1267ae5b?w=300" alt="Offer 1" class="w-full md:w-1/3 rounded-lg">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">خرید ۲ عدد تخفیف ۱۵%</h3>
+                                <p class="text-gray-600 mb-4">از تمامی محصولات شلوار و شورت‌های کاژوال</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-3xl font-bold text-primary">۶۰ درصد</span>
+                                    <button class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition">
+                                        مشاهده محصولات
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special Offer 2 -->
+                <div class="item">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg p-6 md:p-8">
+                        <div class="flex flex-col md:flex-row gap-6 items-center">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=300" alt="Offer 2" class="w-full md:w-1/3 rounded-lg">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-3">مجموعه تابستانی</h3>
+                                <p class="text-gray-600 mb-4">پیراهن‌های سبک و راحت برای فصل تابستان</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-3xl font-bold text-primary">۵۰ درصد</span>
+                                    <button class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition">
+                                        مشاهده محصولات
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500" alt="About" class="rounded-xl shadow-lg">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">درباره فروشگاه ولورا</h2>
+                    <p class="text-gray-600 text-lg mb-4">ما در فروشگاه ولورا به ارائه بهترین محصولات پوشاک زنانه با کیفیت بالا متعهد هستیم. با بیش از ۱۰ سال تجربه در صنعت مد، ما به مشتریان خود ارزش و کیفیت را ارائه می‌دهیم.</p>
+                    <p class="text-gray-600 text-lg mb-6">تمامی محصولات ما از برندهای معروف و معتبر جهان انتخاب شده‌اند و با ضمانت اصالت فروخته می‌شوند.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-pink-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-truck text-3xl text-primary mb-2"></i>
+                            <h3 class="font-bold text-gray-800">ارسال رایگان</h3>
+                            <p class="text-sm text-gray-600">برای خریدهای بالای ۵۰۰ هزار تومان</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-undo text-3xl text-primary mb-2"></i>
+                            <h3 class="font-bold text-gray-800">بازگشت آسان</h3>
+                            <p class="text-sm text-gray-600">تا ۳۰ روز پس از خرید</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-lock text-3xl text-primary mb-2"></i>
+                            <h3 class="font-bold text-gray-800">خریداری امن</h3>
+                            <p class="text-sm text-gray-600">پرداخت محفوظ و رمزگذاری</p>
+                        </div>
+                        <div class="bg-pink-50 p-4 rounded-lg text-center">
+                            <i class="fas fa-headset text-3xl text-primary mb-2"></i>
+                            <h3 class="font-bold text-gray-800">پشتیبانی ۲۴/۷</h3>
+                            <p class="text-sm text-gray-600">در تمام روزهای هفته</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 md:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">تماس با ما</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">تلفن</h3>
+                    <p class="text-gray-600">۰۲۱ - ۱۲۳۴۵۶۷۸</p>
+                    <p class="text-gray-600">۰۹۱۲ - ۱۲۳۴۵۶۷۸</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">ایمیل</h3>
+                    <p class="text-gray-600">info@velura.ir</p>
+                    <p class="text-gray-600">support@velura.ir</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">آدرس</h3>
+                    <p class="text-gray-600">تهران - خیابان ولیعصر</p>
+                    <p class="text-gray-600">پلاک ۱۲۳</p>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <form class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="نام و نام خانوادگی" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        <input type="email" placeholder="ایمیل" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                    </div>
+                    <input type="text" placeholder="موضوع" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                    <textarea placeholder="پیام شما..." rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"></textarea>
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-pink-600 transition">
+                        ارسال پیام
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-gradient-to-r from-pink-500 to-purple-600 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center text-white">
+                <h2 class="text-3xl font-bold mb-4">به خبرنامه ما بپیوندید</h2>
+                <p class="text-lg mb-6 opacity-90">از آخرین تخفیف‌ها و محصولات جدید مطلع شوید</p>
+                <div class="flex gap-2 max-w-md mx-auto">
+                    <input type="email" placeholder="ایمیل خود را وارد کنید" class="flex-1 px-4 py-3 rounded-lg text-gray-800">
+                    <button class="bg-white text-primary px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+                        عضویت
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">درباره ولورا</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">درباره ما</a></li>
+                        <li><a href="#" class="hover:text-white transition">بلاگ</a></li>
+                        <li><a href="#" class="hover:text-white transition">شغل</a></li>
+                        <li><a href="#" class="hover:text-white transition">مطبوعات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">خدمات</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">سایز‌بندی</a></li>
+                        <li><a href="#" class="hover:text-white transition">راهنمای خریداری</a></li>
+                        <li><a href="#" class="hover:text-white transition">سیاست برگشت</a></li>
+                        <li><a href="#" class="hover:text-white transition">ضمانت</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">حقوقی</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">شرایط و ضوابط</a></li>
+                        <li><a href="#" class="hover:text-white transition">سیاست حریم‌خصوصی</a></li>
+                        <li><a href="#" class="hover:text-white transition">سیاست کوکی</a></li>
+                        <li><a href="#" class="hover:text-white transition">تنظیمات کوکی</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">ما را دنبال کنید</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 mb-6">
+            
+            <div class="flex justify-between items-center">
+                <p class="text-gray-400">&copy; ۱۴۰۲ ولورا. تمام حقوق محفوظ است.</p>
+                <div class="flex gap-4">
+                    <i class="fab fa-cc-visa text-2xl"></i>
+                    <i class="fab fa-cc-mastercard text-2xl"></i>
+                    <i class="fab fa-cc-paypal text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 animate-modal">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">ورود به حساب</h2>
+                <button onclick="closeModal('loginModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="space-y-4">
+                <input type="email" placeholder="ایمیل یا شماره تلفن" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <input type="password" placeholder="رمز عبور" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <div class="flex justify-between items-center text-sm">
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" class="w-4 h-4">
+                        <span>مرا به خاطر بسپار</span>
+                    </label>
+                    <a href="#" class="text-primary hover:text-pink-600">فراموشی رمز؟</a>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-pink-600 transition">
+                    ورود
+                </button>
+            </form>
+            
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">یا</span>
+                </div>
+            </div>
+            
+            <button class="w-full border-2 border-gray-300 text-gray-700 py-3 rounded-lg font-bold hover:border-primary transition mb-4 flex items-center justify-center gap-2">
+                <i class="fab fa-google"></i> ورود با گوگل
+            </button>
+            
+            <p class="text-center text-gray-600">حساب کاربری ندارید؟ <a href="#" onclick="switchModal('loginModal', 'registerModal')" class="text-primary hover:text-pink-600 font-bold">ثبت نام</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 animate-modal">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">ثبت نام</h2>
+                <button onclick="closeModal('registerModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="space-y-4">
+                <input type="text" placeholder="نام و نام خانوادگی" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <input type="email" placeholder="ایمیل" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <input type="tel" placeholder="شماره تلفن" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <input type="password" placeholder="رمز عبور" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <input type="password" placeholder="تکرار رمز عبور" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                <label class="flex items-center gap-2 text-sm">
+                    <input type="checkbox" class="w-4 h-4">
+                    <span>موافق با <a href="#" class="text-primary">شرایط و ضوابط</a></span>
+                </label>
+                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-pink-600 transition">
+                    ثبت نام
+                </button>
+            </form>
+            
+            <p class="text-center text-gray-600 mt-4">حساب کاربری دارید؟ <a href="#" onclick="switchModal('registerModal', 'loginModal')" class="text-primary hover:text-pink-600 font-bold">ورود</a></p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full p-8 animate-modal max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">سبد خرید</h2>
+                <button onclick="closeModal('cartModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <p class="text-gray-500 text-center py-8">سبد خرید شما خالی است</p>
+            </div>
+            
+            <div class="border-t pt-4 space-y-2">
+                <div class="flex justify-between text-lg">
+                    <span>جمع:</span>
+                    <span id="cartTotal" class="font-bold text-primary">۰</span>
+                </div>
+                <div class="flex justify-between text-lg">
+                    <span>تخفیف:</span>
+                    <span id="cartDiscount" class="font-bold text-red-500">۰</span>
+                </div>
+                <div class="flex justify-between text-xl border-t pt-2">
+                    <span>قابل پرداخت:</span>
+                    <span id="cartFinal" class="font-bold text-primary text-2xl">۰</span>
+                </div>
+            </div>
+            
+            <button class="w-full bg-primary text-white py-3 rounded-lg font-bold hover:bg-pink-600 transition mt-6">
+                ادامه خریداری
+            </button>
+        </div>
+    </div>
+
+    <!-- Favorites Modal -->
+    <div id="favoritesModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full p-8 animate-modal max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">علاقه‌مندی‌ها</h2>
+                <button onclick="closeModal('favoritesModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="favoritesList" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <p class="text-gray-500 text-center col-span-full py-8">هیچ محصول مورد علاقه ندارید</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div id="compareModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-4xl w-full p-8 animate-modal max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">مقایسه محصولات</h2>
+                <button onclick="closeModal('compareModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-3 text-right">مشخصات</th>
+                            <th class="p-3">محصول ۱</th>
+                            <th class="p-3">محصول ۲</th>
+                            <th class="p-3">محصول ۳</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-3 font-bold text-gray-700">نام</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-bold text-gray-700">قیمت</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-3 font-bold text-gray-700">رنگ</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-gray-700">سایز</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                            <td class="p-3 text-center">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="text-gray-500 text-center py-8">محصولی برای مقایسه انتخاب نشده است</p>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full p-8 animate-modal">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-800">جستجو</h2>
+                <button onclick="closeModal('searchModal')" class="text-gray-500 hover:text-gray-700 text-2xl">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="relative mb-6">
+                <input type="text" placeholder="جستجو در محصولات..." class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary text-lg">
+                <i class="fas fa-search absolute left-4 top-3 text-gray-400 text-lg"></i>
+            </div>
+            
+            <div id="searchResults" class="space-y-3">
+                <p class="text-gray-500 text-center py-8">شروع به تایپ کنید تا نتایج نمایش داده شود</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
