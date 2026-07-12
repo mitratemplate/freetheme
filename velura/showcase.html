@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ولورا - معرفی قالب فروشگاه پوشاک زنانه</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #fef1f9 0%, #fef3c7 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #d946ef;
+            box-shadow: 0 20px 40px rgba(217, 70, 239, 0.2);
+        }
+        
+        .screenshot-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .code-block {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-right: 4px solid #d946ef;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-shopping-bag text-3xl gradient-primary" style="background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                <span class="text-2xl font-bold text-gray-800">ولورا</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#features" class="text-gray-700 hover:text-pink-600 transition">ویژگی‌ها</a>
+                <a href="#demo" class="text-gray-700 hover:text-pink-600 transition">نمایش</a>
+                <a href="#download" class="text-gray-700 hover:text-pink-600 transition">دانلود</a>
+                <a href="#faq" class="text-gray-700 hover:text-pink-600 transition">سوالات</a>
+            </nav>
+            <a href="index.html" class="gradient-primary text-white px-6 py-2 rounded-lg hover:shadow-lg transition">
+                نمایش قالب
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in-up">
+                    <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                        قالب <span style="background: linear-gradient(135deg, #d946ef 0%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ولورا</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        قالب مدرن و واکنش‌پذیر برای فروشگاه‌های پوشاک زنانه آنلاین. طراحی حرفه‌ای، عملکرد سریع و تجربه کاربری بی‌نظیر.
+                    </p>
+                    <div class="flex gap-4 flex-col md:flex-row">
+                        <a href="index.html" class="gradient-primary text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg transition text-center">
+                            نمایش زنده
+                        </a>
+                        <a href="#download" class="border-2 border-pink-600 text-pink-600 px-8 py-4 rounded-lg font-bold hover:bg-pink-50 transition text-center">
+                            دانلود رایگان
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-12">
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gray-800">۱۰۰%</h3>
+                            <p class="text-gray-600">ریسپانسیو</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gray-800">۰۳</h3>
+                            <p class="text-gray-600">فایل اصلی</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gray-800">∞</h3>
+                            <p class="text-gray-600">قابلیت سفارشی‌سازی</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1595421868261-17bd75e94e5c?w=600" alt="Showcase" class="rounded-2xl shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">ویژگی‌های برتر</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">طراحی ریسپانسیو</h3>
+                    <p class="text-gray-600">کار کامل بر روی تمام دستگاه‌ها و اندازه‌های مختلف صفحه</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-globe"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">پشتیبانی فارسی</h3>
+                    <p class="text-gray-600">کاملاً بهینه‌شده برای زبان فارسی و نوشتار راست‌به‌چپ</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">سرعت فوق‌العاده</h3>
+                    <p class="text-gray-600">بهینه‌سازی شده برای بارگذاری سریع و عملکرد بالا</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-shopping-cart"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">عملکردهای فروشگاهی</h3>
+                    <p class="text-gray-600">سبد خرید، علاقه‌مندی، مقایسه محصولات و جستجو</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-code"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">کد تمیز</h3>
+                    <p class="text-gray-600">کد سازمان‌دهی شده و آسان برای سفارشی‌سازی</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">طراحی مدرن</h3>
+                    <p class="text-gray-600">رنگ‌های روز دنیا، انیمیشن‌های جذاب و UI حرفه‌ای</p>
+                </div>
+                
+                <!-- Feature 7 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">کمپوننت‌های آماده</h3>
+                    <p class="text-gray-600">Modal، Carousel، Card و بسیاری کمپوننت‌های دیگر</p>
+                </div>
+                
+                <!-- Feature 8 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-users"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">سیستم احراز هویت</h3>
+                    <p class="text-gray-600">مودال‌های ورود و ثبت‌نام آماده برای استفاده</p>
+                </div>
+                
+                <!-- Feature 9 -->
+                <div class="feature-card bg-white p-8 rounded-12px">
+                    <div class="text-4xl mb-4 text-pink-600"><i class="fas fa-certificate"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">رایگان و متن‌باز</h3>
+                    <p class="text-gray-600">MIT License - استفاده آزاد و تجاری</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">نمایش قالب</h2>
+            
+            <div class="screenshot-container">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1200" alt="Dashboard" class="w-full h-auto">
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-xl text-gray-600 mb-6">برای نمایش کامل قالب و تمام ویژگی‌های آن:</p>
+                <a href="index.html" class="gradient-primary text-white px-12 py-4 rounded-lg font-bold hover:shadow-lg transition inline-block">
+                    نمایش نسخه زنده
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">فناوری‌های استفاده شده</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-12px">
+                    <i class="fas fa-wind text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Tailwind CSS</h3>
+                    <p class="text-gray-600 text-sm">طراحی و استایل‌دهی</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-12px">
+                    <i class="fas fa-image text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Owl Carousel</h3>
+                    <p class="text-gray-600 text-sm">اسلایدرها و کروسل‌ها</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-pink-50 to-pink-100 rounded-12px">
+                    <i class="fas fa-icon text-5xl text-pink-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Font Awesome</h3>
+                    <p class="text-gray-600 text-sm">آیکون‌های زیبا</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-12px">
+                    <i class="fab fa-js text-5xl text-yellow-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">JavaScript</h3>
+                    <p class="text-gray-600 text-sm">تعاملات و عملکردها</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="download" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">قیمت‌گذاری</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Free Plan -->
+                <div class="bg-white rounded-12px shadow-lg p-8 text-center relative">
+                    <h3 class="text-2xl font-bold mb-4">رایگان</h3>
+                    <div class="price-tag mb-6">رایگان</div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>تمام فایل‌ها</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>پشتیبانی فارسی</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>کد متن‌باز</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>استفاده تجاری</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>بدون محدودیت</span>
+                        </li>
+                    </ul>
+                    <a href="index.html" class="gradient-primary text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition w-full block">
+                        دانلود اکنون
+                    </a>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-white rounded-12px shadow-2xl p-8 text-center relative md:scale-105 z-10">
+                    <div class="absolute -top-4 right-4 gradient-primary text-white px-4 py-1 rounded-full text-sm font-bold">
+                        پرمحبوب‌ترین
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">پرمیوم</h3>
+                    <div class="price-tag mb-6">۲۹۹,۰۰۰ تومان</div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>تمام قالب‌ها</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>آپدیت رایگان</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>پشتیبانی اولویت‌دار</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>مثال‌های اضافی</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>فایل‌های PSD</span>
+                        </li>
+                    </ul>
+                    <button class="gradient-primary text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition w-full">
+                        خرید اکنون
+                    </button>
+                </div>
+                
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-12px shadow-lg p-8 text-center relative">
+                    <h3 class="text-2xl font-bold mb-4">سفارشی</h3>
+                    <div class="price-tag mb-6">توافقی</div>
+                    <ul class="text-left space-y-3 mb-8">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>طراحی سفارشی</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>توسعه‌دهی کامل</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>پشتیبانی ۲۴/۷</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>یکسال نگهداری</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-check text-green-500"></i>
+                            <span>مشاوره رایگان</span>
+                        </li>
+                    </ul>
+                    <button class="border-2 border-pink-600 text-pink-600 px-6 py-3 rounded-lg font-bold hover:bg-pink-50 transition w-full">
+                        تماس بگیرید
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">سوالات متداول</h2>
+            
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا می‌توانم قالب را برای پروژه‌های تجاری استفاده کنم؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">بله، قالب ولورا تحت MIT License است که به شما اجازه می‌دهد برای پروژه‌های شخصی و تجاری استفاده کنید.</p>
+                </details>
+                
+                <!-- FAQ 2 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا پشتیبانی فنی وجود دارد؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">بله، ما پشتیبانی رایگان و محدود برای نسخه رایگان و پشتیبانی اولویت‌دار برای نسخه پرمیوم ارائه می‌دهیم.</p>
+                </details>
+                
+                <!-- FAQ 3 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا می‌توانم قالب را تغییر دهم؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">البته، کد کاملاً متن‌باز است و شما می‌توانید هر گونه تغییری را در آن انجام دهید.</p>
+                </details>
+                
+                <!-- FAQ 4 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا نیاز به دانش برنامه‌نویسی دارم؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">نه، شما می‌توانید قالب را بدون تغییر استفاده کنید یا تنها متن و تصاویر را تغییر دهید. دانش برنامه‌نویسی برای سفارشی‌سازی پیشرفته الزامی است.</p>
+                </details>
+                
+                <!-- FAQ 5 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا قالب بر روی تمام مرورگرها کار می‌کند؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">بله، قالب بر روی تمام مرورگرهای مدرن شامل Chrome, Firefox, Safari و Edge کار می‌کند.</p>
+                </details>
+                
+                <!-- FAQ 6 -->
+                <details class="group border-2 border-gray-200 rounded-lg p-6 cursor-pointer hover:border-pink-600 transition">
+                    <summary class="flex items-center justify-between font-bold text-lg text-gray-800">
+                        <span>آیا قالب برای موبایل بهینه‌شده است؟</span>
+                        <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                    </summary>
+                    <p class="mt-4 text-gray-600">بله، قالب ۱۰۰% ریسپانسیو است و بر روی تمام دستگاه‌ها از موبایل تا دسکتاپ کار می‌کند.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">نظرات کاربران</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"قالب ولورا واقعاً فوق‌العاده است! از نظر طراحی و عملکرد بسیار خوب است. تمام چیزهایی که برای فروشگاه لباس نیاز داشتم در این قالب وجود دارد."</p>
+                    <div>
+                        <p class="font-bold text-gray-800">فاطمه رضایی</p>
+                        <p class="text-sm text-gray-500">صاحب فروشگاه پوشاک</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"کد بسیار تمیز و آسان برای سفارشی‌سازی است. توانستم بدون مشکل قالب را برای نیاز‌های خود تغییر دهم. توصیه می‌کنم!"</p>
+                    <div>
+                        <p class="font-bold text-gray-800">علی محمدی</p>
+                        <p class="text-sm text-gray-500">توسعه‌دهنده وب</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"بهترین قالب فروشگاه پوشاک که تا الآن دیده‌ام. طراحی مدرن، کار کردن برای موبایل عالی است."</p>
+                    <div>
+                        <p class="font-bold text-gray-800">مریم صفوی</p>
+                        <p class="text-sm text-gray-500">مدیر فروشگاه آنلاین</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-primary">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">آماده شروع کردن؟</h2>
+            <p class="text-xl text-white opacity-90 mb-8">قالب ولورا را دانلود کنید و امروز فروشگاه پوشاک زنانه خود را راه‌اندازی کنید</p>
+            
+            <div class="flex gap-4 justify-center flex-col md:flex-row">
+                <a href="index.html" class="bg-white text-pink-600 px-12 py-4 rounded-lg font-bold hover:shadow-lg transition">
+                    نمایش قالب
+                </a>
+                <a href="#download" class="border-2 border-white text-white px-12 py-4 rounded-lg font-bold hover:bg-white hover:text-pink-600 transition">
+                    دانلود رایگان
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-shopping-bag text-2xl text-pink-500"></i>
+                        <span class="text-xl font-bold">ولورا</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">قالب فروشگاه پوشاک زنانه مدرن و قابل‌اعتماد</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">پیوندهای سریع</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#features" class="hover:text-white transition">ویژگی‌ها</a></li>
+                        <li><a href="#download" class="hover:text-white transition">دانلود</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">سوالات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">منابع</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition">نمایش قالب</a></li>
+                        <li><a href="#" class="hover:text-white transition">اسناد</a></li>
+                        <li><a href="#" class="hover:text-white transition">تماس</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">ما را دنبال کنید</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 mb-6">
+            
+            <div class="text-center text-gray-400 text-sm">
+                <p>&copy; ۱۴۰۲ قالب ولورا. تمام حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('[data-menu-toggle]');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                const menu = document.querySelector('nav');
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
