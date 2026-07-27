@@ -1,15 +1,29 @@
-```gitignore
+```
 # Dependencies
 vendor/
 
-# Logs
+# Logs and temp files
 *.log
+*.tmp
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Compiled/Generated files
-*.sql
+# Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# PHP specific
+*.php~
+*.bak
+
+# Build artifacts
+build/
+dist/
 ```
