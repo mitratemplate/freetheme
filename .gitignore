@@ -1,7 +1,49 @@
 ```
-# Compressed files
-*.zip
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.out
+*.class
+*.exe
+*.dll
+*.so
+*.a
 
-# Database
-database.sql
+# Dependencies
+vendor/
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Editors
+.vscode/
+.idea/
+
+# Build directories
+dist/
+build/
+target/
+coverage/
+htmlcov/
+*.coverage
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Cache directories
+.mypy_cache/
+.pytest_cache/
+.gradle/
 ```
