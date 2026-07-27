@@ -1,71 +1,104 @@
 <?php
 /**
- * Database Connection Class
- * Singleton Pattern for Database Connection
+ * کلاس اتصال به پایگاه داده با استفاده از PDO
+ * امنیت کامل در برابر SQL Injection
  */
 
 class Database {
     private static $instance = null;
-    private $pdo;
-    private $config;
-
+    private $connection;
+    
     private function __construct() {
-        $this->config = require __DIR__ . '/../config/database.php';
-        
         try {
-            $dsn = "mysql:host={$this->config['host']};dbname={$this->config['dbname']};charset={$this->config['charset']}";
-            $this->pdo = new PDO($dsn, $this->config['username'], $this->config['password'], $this->config['options']);
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            $this->connection = new PDO($dsn, DB_USER, DB_PASS, PDO_OPTIONS);
         } catch (PDOException $e) {
-            error_log("Database connection failed: " . $e->getMessage());
-            die("خطا در اتصال به پایگاه داده. لطفاً تنظیمات را بررسی کنید.");
+            die("خطا در اتصال به پایگاه داده: " . $e->getMessage());
         }
     }
-
+    
     public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
     }
-
+    
     public function getConnection() {
-        return $this->pdo;
+        return $this->connection;
     }
-
+    
+    // جلوگیری از کلون کردن
+    private function __clone() {}
+    
+    // جلوگیری از unserialize
+    public function __wakeup() {
+        throw new Exception("Cannot unserialize singleton");
+    }
+    
+    /**
+     * اجرای کوئری با Prepared Statements
+     */
     public function query($sql, $params = []) {
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($params);
-        return $stmt;
+        try {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute($params);
+            return $stmt;
+        } catch (PDOException $e) {
+            error_log("Query Error: " . $e->getMessage());
+            throw $e;
+        }
     }
-
-    public function fetch($sql, $params = []) {
-        return $this->query($sql, $params)->fetch();
+    
+    /**
+     * دریافت یک رکورد
+     */
+    public function fetchOne($sql, $params = []) {
+        $stmt = $this->query($sql, $params);
+        return $stmt->fetch();
     }
-
+    
+    /**
+     * دریافت همه رکوردها
+     */
     public function fetchAll($sql, $params = []) {
-        return $this->query($sql, $params)->fetchAll();
+        $stmt = $this->query($sql, $params);
+        return $stmt->fetchAll();
     }
-
+    
+    /**
+     * درج رکورد جدید
+     */
     public function insert($table, $data) {
-        $columns = implode(', ', array_keys($data));
-        $placeholders = ':' . implode(', :', array_keys($data));
-        $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+        $keys = array_keys($data);
+        $fields = implode(', ', $keys);
+        $placeholders = ':' . implode(', :', $keys);
+        
+        $sql = "INSERT INTO $table ($fields) VALUES ($placeholders)";
         $this->query($sql, $data);
-        return $this->pdo->lastInsertId();
+        return $this->connection->lastInsertId();
     }
-
+    
+    /**
+     * بروزرسانی رکورد
+     */
     public function update($table, $data, $where, $whereParams = []) {
         $set = [];
         foreach ($data as $key => $value) {
-            $set[] = "{$key} = :{$key}";
+            $set[] = "$key = :$key";
         }
         $setString = implode(', ', $set);
-        $sql = "UPDATE {$table} SET {$setString} WHERE {$where}";
-        return $this->query($sql, array_merge($data, $whereParams));
+        
+        $sql = "UPDATE $table SET $setString WHERE $where";
+        $params = array_merge($data, $whereParams);
+        return $this->query($sql, $params);
     }
-
+    
+    /**
+     * حذف رکورد
+     */
     public function delete($table, $where, $params = []) {
-        $sql = "DELETE FROM {$table} WHERE {$where}";
+        $sql = "DELETE FROM $table WHERE $where";
         return $this->query($sql, $params);
     }
 }

@@ -1,24 +1,13 @@
 <?php
 /**
- * Logout Handler
+ * خروج از سامانه
  */
-session_start();
 
-$db = Database::getInstance();
+require_once dirname(__DIR__) . '/index.php';
 
-// Create audit log before destroying session
-if (isset($_SESSION['user_id'])) {
-    $db->insert('audit_log', [
-        'user_id' => $_SESSION['user_id'],
-        'action' => 'logout',
-        'ip_address' => $_SERVER['REMOTE_ADDR'] ?? '',
-        'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? ''
-    ]);
-}
-
-// Destroy session
+// حذف سشن کاربر
+session_unset();
 session_destroy();
 
-// Redirect to login
-header('Location: login');
-exit;
+// هدایت به صفحه ورود
+redirect('login.php');

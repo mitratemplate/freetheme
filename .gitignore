@@ -1,8 +1,5 @@
-```gitignore
-# Compressed files
-*.zip
-
-# Environment files
+```
+# Environment and config files
 .env
 .env.local
 *.env.*
@@ -10,10 +7,40 @@
 # Logs
 *.log
 
+# Temporary files
+*.tmp
+*.swp
+
 # Dependencies
 vendor/
+node_modules/
 
-# Build/dist directories
+# Build artifacts
 dist/
 build/
+target/
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# PHP specific
+*.php~
+*.php.bak
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
 ```
