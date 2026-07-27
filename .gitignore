@@ -1,4 +1,4 @@
-```
+```gitignore
 # Compressed files
 *.zip
 
@@ -7,44 +7,13 @@
 .env.local
 *.env.*
 
-# Dependencies
-vendor/
-node_modules/
-
-# Build artifacts
-dist/
-build/
-target/
-
 # Logs
 *.log
 
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
+# Dependencies
+vendor/
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Cache directories
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Testing
-.coverage
-coverage/
-htmlcov/
-
-# PHP specific
-*.phar
-.php_cs.cache
-
-# Database
-*.sql
+# Build/dist directories
+dist/
+build/
 ```
