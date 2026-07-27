@@ -1,0 +1,15 @@
+```gitignore
+# Dependencies
+vendor/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Compiled/Generated files
+*.sql
+```
